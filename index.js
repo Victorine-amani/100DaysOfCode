@@ -1,21 +1,65 @@
-//functions,objects and methods
-//functions
-//....for loops
-function loops() {
-    let mix = ["Victorine", "Kenyan", "student", "AkiraChix"];
-    for (var i = 0; i < mix.length; i++) {
-        console.log(mix[i]);
+//  Arrow functions
+let grade = (marks) => {
+    if (marks >= 50 && marks == 100) {
+        console.log("Pass");
+    } else if (marks <= 49 && marks == 30) {
+        console.log("Work harder")
+    } else if (marks <= 29) {
+        console.log("Go home!")
+    } else {
+        console.log("results canceled")
     }
+
 }
-loops();
-//objects and methods
-var personal = {
-    name: "Victroine Amani",
-    age: 20,
-    school: "AkiraChix",
-    nationality: "Kenya",
-    info: function() {
-        console.log("My name is " + this.name + " I am " + this.age + " years old,studying at " + this.school + " in " + this.nationality);
+grade(77);
+
+function walk() {
+    console.log("Everyone must walk at four pm");
+}
+
+var student = {
+    age: 22,
+    name: "Victorine Amani",
+    walk: walk,
+
+}
+console.log(student.name);
+console.log(student.age);
+console.log(student.walk());
+
+var kiosk = function kibanda() {
+    console.log("I have a kibanda")
+}
+kiosk();
+
+function Student(name, grades, age, colourCode) {
+    this.name = name,
+        this.grades = grades,
+        this.age = age,
+        this.colourCode = colourCode,
+        this.welcome = function() {
+            console.log(`${this.name} is in the ${this.colourCode} list because she is a ${this.grades} grade student and she is ${this.age} years old`);
+
+        }
+
+}
+
+var fresher = new Student("Victorine Amani", "B", 20, "Green");
+console.log(fresher.welcome());
+var newbie = new Student("Elizabeth Imaa", "C", 22, "Orange");
+console.log(newbie.welcome())
+    //modules
+function User() {
+    var username, password;
+
+    function doLogin(user, pw) {
+        username = user;
+        password = pw;
     }
+    var publicApi = {
+        login: doLogin,
+    }
+    return publicApi;
 }
-personal.info();
+var person = User();
+person.login("Victorine Amani", "victorine21");
